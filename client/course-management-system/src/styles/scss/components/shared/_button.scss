@@ -1,0 +1,16 @@
+@use '../../base/colors' as *;
+
+.btn-primary {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $OxfordBlue;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,24 @@
+@use '../../base/colors' as *;
+
+.homepage-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    // margin-top: auto;
+    // flex: 1 0 auto;
+    h1 {
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+}
+
+.lorem-text {
+    font-size: 1.3rem;
+}
+
+@media (min-width: 47rem) {
+    .homepage-content {
+        padding: 5rem;
+    }
+}
