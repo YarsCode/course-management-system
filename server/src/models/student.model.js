@@ -80,7 +80,7 @@ studentSchema.pre("save", async function (next) {
 studentSchema.pre("remove", async function (next) {
     const student = this;
     const coursesWithThisStudent = await Course.find({"classes.students.student": student.id});
-    console.log(coursesWithThisStudent);
+    // console.log(coursesWithThisStudent);
 
     coursesWithThisStudent.forEach(async course => {
         // course.students = course.students.filter(studentToDelete => studentToDelete.toString() !== student.id)
@@ -110,7 +110,7 @@ studentSchema.statics.findUserByEmailAndPassowrd = async (email, password) => {
 studentSchema.methods.generateAuthToken = async function () {
     const student = this;
 
-    const token = jwt.sign({ _id: student._id }, process.env.JWT_SECRET, { expiresIn: "6h" });
+    const token = jwt.sign({ _id: student._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
     student.tokens = student.tokens.concat({ token });
     await student.save();
 

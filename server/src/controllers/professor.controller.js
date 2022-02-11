@@ -30,6 +30,16 @@ const getProfessor = async (req, res) => {
     }
 };
 
+const getAllProfessors = async (req, res) => {
+    const professors = await Professor.find({});
+
+    try {
+        res.send({ status: 200, data: { professors } });
+    } catch (err) {
+        res.status(500).send({ status: 500, message: err.message });
+    }
+};
+
 const login = async (req, res) => {
     const { email, password } = req.body;
 
@@ -113,4 +123,4 @@ const deleteProfessor = async (req, res) => {
     }
 };
 
-module.exports = { createProfessor, getProfessor, login, logout, logoutFromAllDevices, editProfessor, deleteProfessor };
+module.exports = { createProfessor, getProfessor, getAllProfessors, login, logout, logoutFromAllDevices, editProfessor, deleteProfessor };

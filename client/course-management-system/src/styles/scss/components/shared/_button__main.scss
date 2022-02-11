@@ -1,0 +1,27 @@
+@use '../../base/colors' as *;
+
+.btn-primary {
+    font-family: inherit;
+    // margin: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $OxfordBlue;
+    box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
+    overflow: hidden;
+
+    a {
+        width: 100%;
+    }
+
+    &:disabled {
+        background: $Crimson !important;
+    }
+
+    &:hover:enabled {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}

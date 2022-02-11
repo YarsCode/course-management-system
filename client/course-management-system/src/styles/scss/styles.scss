@@ -3,12 +3,30 @@
 // Shared
 @use "./components/shared/header";
 @use "./components/shared/footer";
+@use "./components/shared/loader";
+@use "./components/shared/about";
+@use "./components/shared/contact-us";
 @use "./components/shared/error404page";
-@use "./components/shared/button";
+@use "./components/shared/button__main";
 @use "./components/shared/mobile-nav";
+@use "./components/shared/desktop-nav";
+@use "./components/shared/warning-modal";
 
 // Homepage
 @use "./components/homepage/homepage";
 
 // Login
-@use "./components/login/login"
+@use "./components/login/login-signup";
+
+// Professor Management Interface
+@use "./components/professor-management-interface/manage-courses";
+@use "./components/professor-management-interface/courses-list";
+@use "./components/professor-management-interface/course";
+@use "./components/professor-management-interface/course-edit-form";
+@use "./components/professor-management-interface/students-list";
+
+// Student Management Interface
+@use "./components/student-attendance-management-interface/manage-class-attendance";
+
+// Account
+@use "./components/account/account-settings";

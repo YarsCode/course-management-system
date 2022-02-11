@@ -1,7 +1,12 @@
 @use '../../base/colors' as *;
 
 .mobile-nav {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;    
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 3px 5px, rgba(0, 0, 0, 0.3) 0px 3px 3px;
 }
 
 .mobile-nav__links {
@@ -10,4 +15,8 @@
     align-items: center;
     padding: 2rem;
     background: $Indigo;
+
+    a {
+        margin: 1rem;
+    }
 }

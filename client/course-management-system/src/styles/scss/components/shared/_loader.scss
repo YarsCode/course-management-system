@@ -1,0 +1,24 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 8rem);
+    top: 5rem;
+    left: 0;
+    background-color: rgba(95, 212, 248, 0.37);
+    z-index: 100;
+    // margin: auto;
+
+    img {
+        width: 250px;
+        border-radius: 100px;
+    }
+}
+
+@media (min-width: 47rem) {
+    .loader-container {
+        top: 7rem;
+    }
+}

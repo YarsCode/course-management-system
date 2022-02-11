@@ -1,7 +1,9 @@
 import React from "react";
+import Loader from "../shared/Loader";
 // import loader from "../../styles/img/loaders/flipping-book-pages.gif";
 
 const Homepage = () => {
+    // console.log(process.env.REACT_APP_SERVER_PORT);
     return (
         <main className="homepage-content">
             <h1>Welcome to the Course Management System</h1>
@@ -28,6 +30,7 @@ const Homepage = () => {
                 sint. Expedita vero necessitatibus alias dicta magni suscipit ipsa tempore libero, numquam neque, nihil
                 nesciunt doloremque amet laborum, sit voluptates ratione a hic!
             </div>
+            {/* <Loader/> */}
             {/* <div>
                 <img src={loader} alt="" style={{width: "300px", borderRadius: "200px"}}/>
             </div> */}

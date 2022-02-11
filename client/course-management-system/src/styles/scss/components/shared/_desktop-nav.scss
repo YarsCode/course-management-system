@@ -1,0 +1,23 @@
+@use '../../base/colors' as *;
+
+.desktop-nav {
+    // margin: auto;
+    margin-right: 2rem;
+    margin-left: 1rem;
+}
+
+.desktop-nav__links {
+
+    a {
+        margin: 0 1rem;
+        transition: margin 0.3s ease-out;
+    }
+}
+
+@media (max-width: 50rem) {
+    .desktop-nav__links {
+        a {
+            margin: 0 0.5rem;
+        }
+    }
+}

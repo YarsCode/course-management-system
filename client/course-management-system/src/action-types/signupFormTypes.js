@@ -1,0 +1,8 @@
+export const signupFormTypes = {
+    UPDATE_NAME: "UPDATE_NAME",
+    UPDATE_EMAIL: "UPDATE_EMAIL",
+    UPDATE_PASSWORD: "UPDATE_PASSWORD",
+    UPDATE_REPEATED_PASSWORD: "UPDATE_REPEATED_PASSWORD",
+};
+
+export default signupFormTypes;

@@ -34,7 +34,7 @@ const getCourse = async (req, res) => {
 };
 
 const getAllCourses = async (req, res) => {
-    const courses = await Course.find({}).populate('professor', '_id name').populate('students', '_id name');
+    const courses = await Course.find({}).populate('professor', '_id name').populate('classes.students.student', '_id name');
 
     try {
         res.send({ status: 200, data: { courses } });
@@ -45,7 +45,8 @@ const getAllCourses = async (req, res) => {
 
 const editCourse = async (req, res) => {
     const edits = Object.keys(req.body);
-    const allowedEdits = ['name', 'professor', 'startingDate', 'endingDate', 'classes', 'date', 'students'];
+    // console.log(edits);
+    const allowedEdits = ['name', 'professor', 'startingDate', 'endingDate', 'classes', 'date'];
     const areEditsValid = edits.every((edit) => allowedEdits.includes(edit));
 
     if (!areEditsValid) return res.status(400).send({ status: 400, message: 'Edits are not valid.' });
@@ -62,6 +63,7 @@ const editCourse = async (req, res) => {
 
         res.send({ status: 200, message: 'Account information updated.', data: { course } });
     } catch (err) {
+        // console.log(err.message);
         res.status(501).send({ status: 501, message: err });
     }
 };

@@ -1,0 +1,17 @@
+@use "../../base/colors" as *;
+
+.courses-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 47rem) {
+    .courses-list-container {
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        width: 90%;
+    }
+}

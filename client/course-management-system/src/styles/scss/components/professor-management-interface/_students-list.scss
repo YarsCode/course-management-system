@@ -1,0 +1,111 @@
+@use "../../base/colors" as *;
+@use "./course" as *;
+
+.students-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+
+.create-student-btn {
+    @extend .add-course-btn;
+    background: $Indigo;
+    width: 80%;
+    padding: 1.5rem;
+}
+
+.students {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.student {
+    @extend .student-in-class;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    background: $MiddleBlue;
+    color: $Snow;
+    padding: 3rem 2rem;
+    margin: 0;
+
+    p {
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: bold;
+        background: $Indigo;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 8px;
+        color: $Snow;
+    }
+}
+
+.student-trash-icon {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    padding: 0.5rem 1rem;
+    background: $DarkCyan;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.edit-new-student-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem
+}
+
+.edit-student-form-fieldset {
+    @extend .edit-class-fieldset;
+    @extend .edit-form-inputs;
+    width: 80%;
+    border: 2px solid $Indigo;
+    color: $OxfordBlue;
+}
+
+.edit-student-password {
+    i {
+        margin-top: 1rem;
+        text-shadow: 4px 4px 8px black;
+
+        &:hover, &:active {
+            cursor: pointer;
+            opacity: 0.7;
+        }
+    }
+}
+
+.invalid-input-message {
+    @extend .invalid-fieldset-message;
+    max-width: 80%;
+    color: $Crimson;
+}
+
+@media (min-width: 47rem) {
+    .students {
+        justify-content: center;
+        align-items: flex-start;
+        flex-flow: row wrap;
+        width: 90%;
+    }
+
+    .student {
+        width: 20vw;
+        min-width: 40%;
+        margin: 1rem;
+    }
+}

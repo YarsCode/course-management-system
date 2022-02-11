@@ -1,15 +1,12 @@
 const Course = require("../models/course.model");
 const Student = require("../models/student.model");
+const _ = require('lodash');
 
 const createStudent = async (req, res) => {
     const student = new Student(req.body);
-    // console.log(student instanceof Student);
-    // console.log(student.constructor.modelName);
 
     try {
         await student.save();
-
-        // const token = await student.generateAuthToken();
 
         console.log("A new student's account has been created successfully!");
 
@@ -29,6 +26,48 @@ const getStudent = async (req, res) => {
         res.send({ status: 200, data: { student } });
     } catch (err) {
         res.status(500).send({ status: 500, message: "Internal server error." });
+    }
+};
+
+const getAllStudents = async (req, res) => {
+    const students = await Student.find({});
+
+    try {
+        res.send({ status: 200, data: { students } });
+    } catch (err) {
+        res.status(500).send({ status: 500, message: err.message });
+    }
+};
+
+const getAllExistingEmails = async (req, res) => {
+    const students = await Student.find({});
+    const allExistingEmails = _.map(students, student => _.pick(student, 'email'))
+
+    try {
+        res.send({ status: 200, data: { allExistingEmails } });
+    } catch (err) {
+        res.status(500).send({ status: 500, message: err.message });
+    }
+};
+
+const getAllClassesWithStudent = async (req, res) => {
+    const student = req.student;
+    const allCoursesThatHasClassesWithStudent = await Course.find({"classes.students.student": student._id});
+    const allClassesWithStudent = [];
+    
+    allCoursesThatHasClassesWithStudent.forEach((course, i) => {
+        allClassesWithStudent.push({course: {id: course._id, name: course.name}, classesWithStudent: []});
+
+        course.classes.forEach((classInCourse) => {
+            const isClassContainsThisStudent = classInCourse.students.find(studentInClass => studentInClass.student.toString() === student._id.toString())
+            if (isClassContainsThisStudent) allClassesWithStudent[i].classesWithStudent.push(classInCourse)
+        })
+    })
+    
+    try {
+        res.send({ status: 200, data: { allClassesWithStudent } });
+    } catch (err) {
+        res.status(500).send({ status: 500, message: err.message });
     }
 };
 
@@ -141,4 +180,4 @@ const deleteStudent = async (req, res) => {
     }
 };
 
-module.exports = { createStudent, getStudent, login, logout, logoutFromAllDevices, editStudent, changeAttendanceStatus, deleteStudent };
+module.exports = { createStudent, getStudent, getAllStudents, getAllExistingEmails, getAllClassesWithStudent, login, logout, logoutFromAllDevices, editStudent, changeAttendanceStatus, deleteStudent };

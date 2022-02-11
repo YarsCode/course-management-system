@@ -82,7 +82,7 @@ professorSchema.statics.findUserByEmailAndPassowrd = async (email, password) => 
 professorSchema.methods.generateAuthToken = async function () {
     const professor = this;
 
-    const token = jwt.sign({ _id: professor._id }, process.env.JWT_SECRET, { expiresIn: "6h" });
+    const token = jwt.sign({ _id: professor._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
     professor.tokens = professor.tokens.concat({ token });
     await professor.save();
 

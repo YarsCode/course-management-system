@@ -1,0 +1,121 @@
+@use "../../base/colors" as *;
+
+.account-settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.account-settings-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 70vh;
+    margin: 1rem;
+    padding: 1rem 0;
+    background: rgba(128, 206, 215, 0.235);
+    color: $Snow;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    button {
+        width: 50%;
+        box-shadow: $Indigo 2px 2px 5px;
+        margin: 2rem 0 1rem;
+    }
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    p {
+        display: flex;
+        justify-content: center;
+        background: $DarkCyan;
+        box-shadow: 6px 6px 6px 3px black;
+        width: 80%;
+        padding: 1rem;
+        border-radius: 16px;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+}
+
+.delete-account-btn {
+    margin-top: 3rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: $Indigo 2px 2px 5px;
+}
+
+.account-edit-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.account-edit-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $DarkCyan;
+    box-shadow: 6px 6px 6px 3px black;
+    width: 90%;
+    margin: 0.8rem 0;
+    padding: 1rem;
+    border-radius: 16px;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    input {
+        // justify-self: flex-end;
+        font-family: inherit;
+        padding: 1rem;
+        border-radius: 8px;
+        border: none;
+        margin-left: 1rem;
+    }
+}
+
+.invalid-input-account-settings {
+    box-shadow: 6px 6px 6px 3px $Crimson;
+
+    label {
+        font-weight: bold;
+        text-shadow: 1px 1px 2px $OxfordBlue;
+        color: $Crimson;
+    }
+}
+
+@media (min-width: 47rem) {
+    .account-settings-content {
+        max-width: 50%;
+
+        button {
+            width: 40%;
+        }
+    }
+
+    .account-details {
+        p {
+            width: 40%;
+        }
+    }
+
+    .account-edit-input {
+        width: 90%;
+        input {
+            max-width: 50%;
+        }
+    }
+}

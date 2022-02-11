@@ -9,10 +9,19 @@ header {
     background: $MiddleBlue;
 }
 
-.CMS-logo {
+.CMS-logo-container {
+    display: flex;
     margin-left: 2rem;
+}
+
+.CMS-logo {
     width: 65px;
-    // border-radius: 8px;
+}
+
+.hamburger-and-mobilenav-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .hamburger-menu-btn {
@@ -34,5 +43,19 @@ header {
         background: $Snow;
         margin: 3px 0;
         border-radius: 30px;
+    }
+}
+
+@media (min-width: 47rem) {
+    header {
+        height: 7rem;
+    }
+
+    .CMS-logo-container {
+        justify-self: flex-start;
+    }
+
+    .CMS-logo {
+        width: 80px;
     }
 }

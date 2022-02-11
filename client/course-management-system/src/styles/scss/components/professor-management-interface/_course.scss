@@ -1,0 +1,141 @@
+@use "../../base/colors" as *;
+@use "./course-edit-form" as *;
+
+.course-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 1rem auto;
+    border-radius: 8px;
+    // background: rgba(201, 139, 185, 0.4);
+    background: $MiddleBlue;
+    box-shadow: 1px 1px 5px $Indigo;
+    color: $Indigo;
+    text-shadow: 1px 1px 1px rgba(81, 67, 21, 0.6);
+
+    button {
+        margin: 1rem;
+    }
+}
+
+.course-name-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0px 3px 3px $OxfordBlue;
+    background: $Indigo;
+    border-radius: 8px;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    color: $Snow;
+}
+
+.title-and-remove-btn {
+    @extend .course-name-title;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.add-course-btn {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 1rem;
+    padding: 1rem;
+    background: rgb(88, 200, 213);
+    background: linear-gradient(
+        160deg,
+        rgba(88, 200, 213, 1) 0%,
+        rgba(128, 206, 215, 1) 53%,
+        rgba(128, 206, 215, 1) 62%,
+        rgba(88, 200, 213, 1) 99%
+    );
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0px 1px 2px $Indigo;
+
+    i {
+        text-shadow: 0px 1px 3px $OxfordBlue;
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
+}
+
+.course-details-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    font-size: 1.2rem;
+}
+
+.upcoming-classes__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    background: $DarkCyan;
+    color: $Snow;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+    p {
+        font-weight: bold;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.upcoming-classes__title--clicked {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.classes-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.class-trash-icon {
+    // margin-top: 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem;
+    background: $DarkCyan;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.upcoming-class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    background: $Indigo;
+    box-shadow: 1px 1px 5px $Indigo;
+    color: $Snow;
+}
+
+@media (min-width: 47rem) {
+    .course-container {
+        width: 40vw;
+    }
+
+    .add-course-btn {
+        width: 95%;
+        padding: 2rem 0;
+    }
+}

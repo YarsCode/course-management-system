@@ -5,6 +5,9 @@ const professorAuth = require("../middleware/professor.auth");
 const {
     createStudent,
     getStudent,
+    getAllStudents,
+    getAllExistingEmails,
+    getAllClassesWithStudent,
     login,
     logout,
     logoutFromAllDevices,
@@ -17,6 +20,9 @@ const router = express.Router();
 
 // Routers
 router.post("/new", professorAuth, createStudent);
+router.get("/all", professorAuth, getAllStudents);
+router.get("/all-emails", studentAuth, getAllExistingEmails);
+router.get("/me/all-classes", studentAuth, getAllClassesWithStudent);
 router.post("/login", login);
 router.post("/logout", studentAuth, logout);
 router.post("/logout-all", studentAuth, logoutFromAllDevices);

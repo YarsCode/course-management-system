@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 
-import formImg from "../../styles/img/login/form.png";
+import SignUpForm from "./SignUpForm";
 
-const Login = () => {
+const Login = (props) => {
+    const [isInLoginMode, setIsInLoginMode] = useState(true);
+    const unauthorizedErrorMessage = props.location.state?.needToLogin ? "You must login!" : "";
+
     return (
-        <main className="login-page">
-            <div className="login-page__content">
-                <div className="login-title">
-                    <img src={formImg} alt="" />
-                    <h1>Login</h1>
-                </div>
-                <LoginForm />
-            </div>
+        <main className="login-signup-page">
+            {isInLoginMode ? (
+                <LoginForm setIsInLoginMode={setIsInLoginMode} unauthorizedErrorMessage={unauthorizedErrorMessage} />
+            ) : (
+                <SignUpForm setIsInLoginMode={setIsInLoginMode} />
+            )}
         </main>
     );
 };
